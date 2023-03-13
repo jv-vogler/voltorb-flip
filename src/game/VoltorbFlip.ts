@@ -1,7 +1,7 @@
-import Board from './Board'
+import Board, { CellValue } from './Board'
 import Level from './Level'
 
-type GameStatus = 'playing' | 'win' | 'lose'
+type GameStatus = 'playing' | 'win' | 'lose' | 'memo'
 
 export default class VoltorbFlip {
   private _board: Board
@@ -20,30 +20,50 @@ export default class VoltorbFlip {
     this._board = new Board(this._level)
   }
 
+  public toggleMemo() {
+    this._gameStatus === 'playing'
+      ? (this._gameStatus = 'memo')
+      : (this._gameStatus = 'playing')
+  }
+
+  public flagCell(row: number, col: number, flag: CellValue): void {
+    this._board.flagCell(row, col, flag)
+  }
+
   public flipCell(row: number, col: number): void {
     const cellValue = this._board.flipCell(row, col)
+
     if (cellValue === 'V') {
       if (this._board.flippedCells < this._currentLevel) {
         this._currentLevel = this._board.flippedCells - 1
       }
       this._gameStatus = 'lose'
-    } else {
-      // score multiplier
-      // check if player found all multipliers
-      // advance level
-      // gameStatus = won
+      return
+    }
+    this._currentScore === 0
+      ? (this._currentScore = cellValue)
+      : (this._currentScore *= cellValue)
+
+    if (this._currentScore === this._board.maxLevelScore) {
+      this.advanceLevel()
     }
   }
 
-  public advanceLevel(): void {
-    this._currentLevel = Math.min(this._currentLevel + 1, 8)
-    this.restartGame()
-  }
-
   public restartGame(): void {
+    this._gameStatus = 'playing'
     this._currentScore = 0
     this._level = new Level(this._currentLevel)
     this._board = new Board(this._level)
+  }
+
+  private advanceLevel(): void {
+    this._currentLevel = Math.min(this._currentLevel + 1, 8)
+    this._totalScore += this._currentScore
+    this.restartGame()
+  }
+
+  get board() {
+    return this._board
   }
 
   get gameStatus() {

@@ -90,7 +90,7 @@ export default class Board {
     return board
   }
 
-  get board() {
+  get cells() {
     return this._board
   }
 
