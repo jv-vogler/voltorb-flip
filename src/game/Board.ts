@@ -20,6 +20,7 @@ type RowColValues = {
 export default class Board {
   private _board: Cell[][]
   private _flippedCells: number
+  private _maxLevelScore: number
   private _rowValues: RowColValues[]
   private _colValues: RowColValues[]
 
@@ -32,6 +33,7 @@ export default class Board {
       .map(() => ({ coins: 0, voltorbs: 0 }))
     this._board = this.createBoard(level)
     this._flippedCells = 0
+    this._maxLevelScore = level.levelData.coins
   }
 
   public flipCell(row: number, col: number): CellValue {
@@ -102,5 +104,9 @@ export default class Board {
 
   get colValues() {
     return this._colValues
+  }
+
+  get maxLevelScore() {
+    return this._maxLevelScore
   }
 }
