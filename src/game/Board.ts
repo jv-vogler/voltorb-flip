@@ -3,7 +3,7 @@ import Level from './Level'
 
 type FlagValues = { 1: boolean; 2: boolean; 3: boolean; V: boolean }
 
-type CellValue = 1 | 2 | 3 | 'V'
+export type CellValue = 1 | 2 | 3 | 'V'
 
 type Cell = {
   value: CellValue
@@ -36,18 +36,18 @@ export default class Board {
     this._maxLevelScore = level.levelData.coins
   }
 
+  public flagCell(row: number, col: number, flag: CellValue): void {
+    const cell: Cell = this._board[row][col]
+    cell.flags[flag] = !cell.flags[flag]
+    cell.isFlagged = Object.values(cell.flags).some(value => value === true)
+  }
+
   public flipCell(row: number, col: number): CellValue {
     const cell: Cell = this._board[row][col]
     if (cell.value !== 'V') this._flippedCells += 1
     cell.isFlipped = !cell.isFlipped
 
     return cell.value
-  }
-
-  public flagCell(row: number, col: number, flag: CellValue): void {
-    const cell: Cell = this._board[row][col]
-    cell.flags[flag] = !cell.flags[flag]
-    cell.isFlagged = Object.values(cell.flags).some(value => value === true)
   }
 
   private createBoard(level: Level) {
