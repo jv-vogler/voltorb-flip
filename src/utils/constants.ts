@@ -1,3 +1,11 @@
+export const COLORS: string[] = [
+  '#e77352',
+  '#5eae43',
+  '#efa539',
+  '#3194ff',
+  '#c872e7',
+]
+
 type Level = {
   x2: number
   x3: number

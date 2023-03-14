@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 import Card from './Card'
 import voltorb from '../../public/images/voltorb.png'
+import RowColCard from './RowColCard'
 
 type Props = {
   game?: VoltorbFlip
@@ -33,17 +34,23 @@ const Gameboard = ({ game }: Props) => {
             </div>
             <div className="grid grid-cols-1 gap-4">
               {game?.board.rowValues.map((row, index) => (
-                <div key={index}>
-                  C: {row.coins} V: {row.voltorbs}
-                </div>
+                <RowColCard
+                  coins={row.coins}
+                  voltorbs={row.voltorbs}
+                  key={index}
+                  index={index}
+                />
               ))}
             </div>
           </div>
           <div className="flex gap-4">
             {game?.board.colValues.map((col, index) => (
-              <div key={index}>
-                C: {col.coins} V: {col.voltorbs}
-              </div>
+              <RowColCard
+                coins={col.coins}
+                voltorbs={col.voltorbs}
+                key={index}
+                index={index}
+              />
             ))}
           </div>
         </div>
