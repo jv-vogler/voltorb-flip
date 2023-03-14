@@ -1,4 +1,7 @@
+import localFont from 'next/font/local'
 import React from 'react'
+
+const scoreFont = localFont({ src: '../../public/fonts/stacked-pixel.ttf' })
 
 type Props = {
   totalScore: number
@@ -7,20 +10,24 @@ type Props = {
 
 const Scoreboard = ({ currentScore, totalScore }: Props) => {
   return (
-    <div className="flex w-full flex-col gap-2">
-      <div className="flex w-11/12 bg-white p-2 text-black">
-        <div className="border-2 border-blue-500">
-          Total <span>Collected Coins</span>
+    <div className="flex w-full flex-col items-center gap-2">
+      <div className="flex w-11/12 rounded-5 border-4 border-gray-300 bg-white px-2 text-black outline outline-2 outline-gray-600">
+        <div className="grow text-center text-3xl leading-7 text-gray-600 drop-shadow-default">
+          Total <span className="block">Collected Coins</span>
         </div>
-        <p className="border-2 border-red-500">
+        <p
+          className={`${scoreFont.className} flex items-center text-6xl text-gray-700 drop-shadow-default`}
+        >
           {totalScore.toString().padStart(5, '0')}
         </p>
       </div>
-      <div className="flex w-11/12 bg-white p-2 text-black">
-        <div className="border-2 border-blue-500">
-          Total <span>Collected Coins</span>
+      <div className="flex w-11/12 rounded-5 border-4 border-gray-300 bg-white px-2 text-black outline outline-2 outline-gray-600">
+        <div className="grow text-center text-3xl leading-7 text-gray-600 drop-shadow-default">
+          Coins Collected in <span className="block">Current Game</span>
         </div>
-        <p className="border-2 border-red-500">
+        <p
+          className={`${scoreFont.className} flex items-center text-6xl text-gray-700 drop-shadow-default`}
+        >
           {currentScore.toString().padStart(5, '0')}
         </p>
       </div>

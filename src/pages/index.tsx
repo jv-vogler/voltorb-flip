@@ -25,7 +25,7 @@ export default function Home() {
       <main
         className={`flex h-screen flex-col items-center border-2 border-red-500 bg-[#58a66c]  text-white ${pokemonFont.className}`}
       >
-        <div className="flex flex-col items-center border-4 border-blue-500">
+        <div className="flex flex-col items-center gap-2 border-4 border-blue-500">
           <GameInfo currentLevel={game.currentLevel} />
           <Scoreboard
             currentScore={game.currentScore}
