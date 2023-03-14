@@ -15,7 +15,7 @@ type Props = {
 const RowColCard = ({ coins, voltorbs, index }: Props) => {
   return (
     <div
-      className={`${numberFont.className} box-content flex h-11 w-11 flex-col rounded-sm outline outline-4 outline-gray-200`}
+      className={`${numberFont.className} box-content flex h-11 w-11 select-none flex-col rounded-sm outline outline-4 outline-gray-200`}
     >
       <div
         className={`relative flex h-full w-full flex-col place-content-center place-items-center text-3xl font-bold text-gray-800`}
