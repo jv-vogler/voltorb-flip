@@ -2,8 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .text-shadow-white {
+    text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff, 1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-rendering: geometricPrecision;
 }
