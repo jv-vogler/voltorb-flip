@@ -1,14 +1,15 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Head from 'next/head'
+import localFont from 'next/font/local'
 import VoltorbFlip from '@/game/VoltorbFlip'
+import GameInfo from '@/components/GameInfo'
+import Scoreboard from '@/components/Scoreboard'
+import Gameboard from '@/components/Gameboard'
+
+const pokemonFont = localFont({ src: '../../public/fonts/pokemon-ds-font.ttf' })
 
 export default function Home() {
-  const [game, setGame] = useState<VoltorbFlip>()
-
-  useEffect(() => {
-    const newGame = new VoltorbFlip()
-    setGame(newGame)
-  }, [])
+  const [game] = useState<VoltorbFlip>(new VoltorbFlip())
 
   return (
     <>
@@ -21,10 +22,17 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <h1>Voltorb Flip</h1>
-        <p>Status: {game?.gameStatus}</p>
-        <p>Current level: {game?.currentLevel}</p>
+      <main
+        className={`flex h-screen flex-col items-center border-2 border-red-500 bg-[#58a66c]  text-white ${pokemonFont.className}`}
+      >
+        <div className="flex flex-col items-center border-4 border-blue-500">
+          <GameInfo currentLevel={game.currentLevel} />
+          <Scoreboard
+            currentScore={game.currentScore}
+            totalScore={game.totalScore}
+          />
+          <Gameboard game={game} />
+        </div>
       </main>
     </>
   )
