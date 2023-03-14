@@ -24,9 +24,13 @@ const RowColCard = ({ coins, voltorbs, index }: Props) => {
         <div className="absolute top-[-11px] right-[-3px] text-end tracking-widest">
           {coins.toString().padStart(2, '0')}
         </div>
-        <div className="absolute top-[20px] z-10 w-full outline outline-2 outline-gray-200"></div>
+        <div className="absolute top-[20px] w-full outline outline-2 outline-gray-200"></div>
         <div className="absolute bottom-[-6px] flex gap-0.5">
-          <Image src={voltorb} alt="voltorb" className="object-contain" />
+          <Image
+            src={voltorb}
+            alt="voltorb"
+            className="voltorb translate-y-1.5 object-contain"
+          />
           <p className="translate-x-0.5">{voltorbs}</p>
         </div>
       </div>

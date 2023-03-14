@@ -22,3 +22,8 @@
   box-sizing: border-box;
   text-rendering: geometricPrecision;
 }
+
+.voltorb {
+  height: 28px;
+  width: 28px;
+}

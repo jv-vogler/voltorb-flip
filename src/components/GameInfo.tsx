@@ -28,7 +28,11 @@ const GameInfo = ({ currentLevel }: Props) => {
 
       <div className="mr-4 flex w-8/12 gap-3 self-end border-b-4 border-b-gray-200 pt-3 text-3xl ">
         <Card fake={true}>
-          <Image src={voltorb} alt="voltorb" className="picture-outline" />
+          <Image
+            src={voltorb}
+            alt="voltorb"
+            className="picture-outline voltorb"
+          />
         </Card>
         <p className="drop-shadow-default">Game Over! 0!</p>
       </div>

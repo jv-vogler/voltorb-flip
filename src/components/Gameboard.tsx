@@ -23,7 +23,7 @@ const Gameboard = ({ game }: Props) => {
                       <Image
                         src={voltorb}
                         alt="voltorb"
-                        className="picture-outline"
+                        className="picture-outline voltorb"
                       />
                     ) : (
                       cell.value
