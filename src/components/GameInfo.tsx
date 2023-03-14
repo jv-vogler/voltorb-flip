@@ -19,15 +19,15 @@ const GameInfo = ({ currentLevel }: Props) => {
 
       <div className="flex w-11/12 gap-3 border-b-4 border-b-gray-200 pt-3 text-3xl">
         <div className="flex gap-4">
-          <Card>1</Card>
-          <Card>2</Card>
-          <Card>3</Card>
+          <Card fake={true}>1</Card>
+          <Card fake={true}>2</Card>
+          <Card fake={true}>3</Card>
         </div>
         <p className="drop-shadow-default">...x1! ...x2! ...x3!</p>
       </div>
 
       <div className="mr-4 flex w-8/12 gap-3 self-end border-b-4 border-b-gray-200 pt-3 text-3xl ">
-        <Card>
+        <Card fake={true}>
           <Image src={voltorb} alt="voltorb" className="picture-outline" />
         </Card>
         <p className="drop-shadow-default">Game Over! 0!</p>
