@@ -1,4 +1,7 @@
 import React from 'react'
+import Card from './Card'
+import Image from 'next/image'
+import voltorb from '../../public/images/voltorb.png'
 
 type Props = {
   currentLevel: number
@@ -15,16 +18,19 @@ const GameInfo = ({ currentLevel }: Props) => {
       </div>
 
       <div className="flex w-11/12 gap-3 border-b-4 border-b-gray-200 pt-3 text-3xl">
-        <div className="grid gap-2">
-          {/* <div className=" flex h-5 w-5 translate-y-0.5 place-content-center place-items-center rounded-5 border-4 border-white bg-red-300 p-4 text-xl font-bold text-black">
-            <span className="text-shadow-white">1</span>
-          </div> */}
+        <div className="flex gap-4">
+          <Card>1</Card>
+          <Card>2</Card>
+          <Card>3</Card>
         </div>
         <p className="drop-shadow-default">...x1! ...x2! ...x3!</p>
       </div>
 
-      <div className="flex w-11/12 gap-3 border-b-4 border-b-gray-200 pt-3 text-3xl drop-shadow-default">
-        Game Over! 0!
+      <div className="mr-4 flex w-8/12 gap-3 self-end border-b-4 border-b-gray-200 pt-3 text-3xl ">
+        <Card>
+          <Image src={voltorb} alt="voltorb" className="picture-outline" />
+        </Card>
+        <p className="drop-shadow-default">Game Over! 0!</p>
       </div>
     </>
   )
