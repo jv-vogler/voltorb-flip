@@ -7,11 +7,10 @@ type Props = {
   children: React.ReactNode
   fake?: boolean
   isFlipped?: boolean
-  row?: number
-  col?: number
+  flipCard?: React.MouseEventHandler<HTMLDivElement>
 }
 
-const Card = ({ children, fake, isFlipped }: Props) => {
+const Card = ({ children, fake, isFlipped, flipCard }: Props) => {
   return fake ? (
     <div className="relative box-content flex h-10 w-10 select-none rounded-sm border-2 border-gray-700 outline outline-4 outline-gray-200">
       <div
@@ -21,7 +20,7 @@ const Card = ({ children, fake, isFlipped }: Props) => {
       </div>
     </div>
   ) : (
-    <div className="cursor-pointer [perspective:1000px]">
+    <div className="cursor-pointer [perspective:1000px]" onClick={flipCard}>
       <div
         className="relative box-content flex h-10 w-10 select-none rounded-sm border-2 border-gray-700 outline outline-4 outline-gray-200 transition-all duration-500 [transform-style:preserve-3d]"
         style={{ transform: `${isFlipped ? 'rotateY(180deg)' : 'none'}` }}

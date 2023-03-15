@@ -12,6 +12,12 @@ type Props = {
 }
 
 const Gameboard = ({ game, updateGame }: Props) => {
+  function handleFlip(row: number, col: number) {
+    updateGame(g => {
+      g.flipCell(row, col)
+    })
+  }
+
   return (
     <div className="h-96 w-full border-4 border-white bg-[#448563] p-1.5 outline outline-2 outline-gray-600">
       <div className="flex h-full w-full rounded-xl bg-[#58a66c] p-2">
@@ -23,9 +29,8 @@ const Gameboard = ({ game, updateGame }: Props) => {
                 return (
                   <Card
                     key={i}
-                    row={coordinate[0]}
-                    col={coordinate[1]}
                     isFlipped={cell.isFlipped}
+                    flipCard={() => handleFlip(coordinate[0], coordinate[1])}
                   >
                     {cell.value === 'V' ? (
                       <Image
