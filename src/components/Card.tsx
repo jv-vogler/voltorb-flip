@@ -6,9 +6,12 @@ const numberFont = localFont({ src: '../../public/fonts/m5x7.ttf' })
 type Props = {
   children: React.ReactNode
   fake?: boolean
+  isFlipped?: boolean
+  row?: number
+  col?: number
 }
 
-const Card = ({ children, fake }: Props) => {
+const Card = ({ children, fake, isFlipped }: Props) => {
   return fake ? (
     <div className="relative box-content flex h-10 w-10 select-none rounded-sm border-2 border-gray-700 outline outline-4 outline-gray-200">
       <div
@@ -18,8 +21,11 @@ const Card = ({ children, fake }: Props) => {
       </div>
     </div>
   ) : (
-    <div className="group cursor-pointer [perspective:1000px]">
-      <div className="relative box-content flex h-10 w-10 select-none rounded-sm border-2 border-gray-700 outline outline-4 outline-gray-200 transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+    <div className="cursor-pointer [perspective:1000px]">
+      <div
+        className="relative box-content flex h-10 w-10 select-none rounded-sm border-2 border-gray-700 outline outline-4 outline-gray-200 transition-all duration-500 [transform-style:preserve-3d]"
+        style={{ transform: `${isFlipped ? 'rotateY(180deg)' : 'none'}` }}
+      >
         <div
           className={`${numberFont.className} text-shadow-white flex h-full w-full place-content-center place-items-center border-2 border-[#a55a52] bg-[#bd8c84] text-3xl font-bold text-black [transform:rotateY(180deg)]`}
         >
