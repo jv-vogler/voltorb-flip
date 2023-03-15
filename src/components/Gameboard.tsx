@@ -39,8 +39,16 @@ const Gameboard = ({ game, updateGame }: Props) => {
                   </Card>
                 )
               })}
+              {game.board.colValues.map((col, index) => (
+                <RowColCard
+                  coins={col.coins}
+                  voltorbs={col.voltorbs}
+                  key={index}
+                  index={index}
+                />
+              ))}
             </div>
-            <div className="grid grid-cols-1 gap-4">
+            <div className="flex flex-col gap-[17.5px]">
               {game.board.rowValues.map((row, index) => (
                 <RowColCard
                   coins={row.coins}
@@ -50,16 +58,6 @@ const Gameboard = ({ game, updateGame }: Props) => {
                 />
               ))}
             </div>
-          </div>
-          <div className="flex gap-4">
-            {game.board.colValues.map((col, index) => (
-              <RowColCard
-                coins={col.coins}
-                voltorbs={col.voltorbs}
-                key={index}
-                index={index}
-              />
-            ))}
           </div>
         </div>
       </div>
