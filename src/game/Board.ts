@@ -44,8 +44,8 @@ export default class Board {
 
   public flipCell(row: number, col: number): CellValue {
     const cell: Cell = this._board[row][col]
-    if (cell.value !== 'V') this._flippedCells += 1
-    cell.isFlipped = !cell.isFlipped
+    if (cell.value !== 'V' && !cell.isFlipped) this._flippedCells += 1
+    if (!cell.isFlipped) cell.isFlipped = true
 
     return cell.value
   }
