@@ -1,17 +1,17 @@
 # [Voltorb Flip](https://voltorbflip.vercel.app/)
 
-[![en](https://img.shields.io/badge/README%20em-português-brightgreen.svg)](../main/README.pt.md)
+[![en](https://img.shields.io/badge/README%20in-english-red.svg)](../main/README.md)
 
-Voltorb Flip is a minigame of the Goldenrod and Celadon Game Corners in the Korean and Western releases of Pokémon HeartGold and SoulSilver.
+Voltorb Flip é um minigame dos Game Corners de Goldenrod e Celadon nas versões Coreanas e Ocidentais dos jogos Pokémon HeartGold e SoulSilver.
 
-### [**Play in the browser**](https://voltorbflip.vercel.app/)
+### [**Jogue no navegador**](https://voltorbflip.vercel.app/)
 
-## How to play
+## Como jogar
 
-- Each row and column has a number of Total Coins and Voltorbs displayed in the colored cards.
-- The objective is to reveal all x2 and x3 Coins while avoiding Voltorbs.
+- Cada linha e coluna tem um número total de Moedas e Voltorbs mostrados nos cartões coloridos.
+- O objectivo é revelar todas as Moedas x2 e x3 Coins evitando os Voltorbs.
 
-## Tools used
+## Ferramentas utilizadas
 
 [<img alt="Visual Studio Code" width="50px" style="padding-right: 10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" />](https://code.visualstudio.com/ 'Visual Studio Code')
 [<img  alt="ReactJS" width="50px" style="padding-right: 10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" />](https://reactjs.org/ 'ReactJS')
@@ -21,11 +21,11 @@ Voltorb Flip is a minigame of the Goldenrod and Celadon Game Corners in the Kore
 
 VSCode | React | TypeScript | Next.js | Tailwindcss
 
-## About the project
+## Sobre o projeto
 
-The goal of this project was to recreate a 'casino-like' game integrating **Typescript** and **React** through **Next.js**. The main game logic, which was created from scratch, is encapsulated inside _VoltorbFlip.ts_, _Board.ts_ and _Level.ts_, and is stored in a React state to be consumed by the UI.
+O objetivo desse projeto foi recriar o jogo semelhante a cassino integrando **Typescript** e **React** através de **Next.js**. A lógica principal do jogo, que foi criada do zero, está encapsulada dentro de _VoltorbFlip.ts_, _Board.ts_ e _Level.ts_, e é armazenada dentro de um estado React para ser consumida pela UI.
 
-The game's UI was recreated using only **Tailwindcss** (the only graphic asset I used is the Voltorb sprite).
+A UI do jogo foi recriada usando apenas **Tailwindcss** (o único gráfico que usei foi o sprite de Voltorb).
 
 ### **VoltorbFlip.ts**
 
@@ -35,7 +35,7 @@ The game's UI was recreated using only **Tailwindcss** (the only graphic asset I
 flipCell(row: number, col: number) => void
 </td>
 <td>
- flips cell at given position
+ vira a célula na posição determinada
 </td>
 </tr>
 
@@ -44,7 +44,7 @@ flipCell(row: number, col: number) => void
 restartGame() => void
 </td>
 <td>
- restarts the level
+ reinicia o nível
 </td>
 </tr>
 
@@ -53,7 +53,7 @@ restartGame() => void
 gameStatus
 </td>
 <td>
- returns 'playing' | 'lose' | 'win' | 'memo'
+ retorna 'playing' | 'lose' | 'win' | 'memo'
 </td>
 </tr>
 
@@ -62,7 +62,7 @@ gameStatus
 currentLevel
 </td>
 <td>
- returns the current level (1~8)
+ retorna o nível atual (1~8)
 </td>
 </tr>
 
@@ -71,7 +71,7 @@ currentLevel
 currentScore
 </td>
 <td>
- returns the current score
+ retorna o placar atual
 </td>
 </tr>
 
@@ -80,7 +80,7 @@ currentScore
 totalScore
 </td>
 <td>
- returns the total score
+ retorna o placar total
 </td>
 </tr>
 
@@ -94,7 +94,7 @@ totalScore
 flippedCells
 </td>
 <td>
- flipped cells this level
+ células viradas nesse nível
 </td>
 </tr>
 
@@ -103,7 +103,7 @@ flippedCells
 rowValues
 </td>
 <td>
- number of Coins and Voltorbs per row
+ número de Moedas e Voltorbs por linha
 </td>
 </tr>
 
@@ -112,7 +112,7 @@ rowValues
 colValues
 </td>
 <td>
- number of Coins and Voltorbs per column
+ número de Moedas e Voltorbs por coluna
 </td>
 </tr>
 
@@ -121,7 +121,7 @@ colValues
 cells
 </td>
 <td>
- returns a 2D array of Cells
+ retorna uma array 2D de Cells
 </td>
 </tr>
 
@@ -130,17 +130,17 @@ cells
 maxLevelScore
 </td>
 <td>
- maximum score you can get this level
+ placar máximo possível nesse nível
 </td>
 </tr>
 
 </table>
 
-## Credits
+## Créditos
 
-The Pokémon images used in this game and the original Voltorb Flip game concept belong to Nintendo. This game is created solely for educational purposes and is not intended for commercial use.
+As imagens de Pokémon usadas nesse jogo e o conceito original do jogo Voltorb Flip pertencem à Nintendo. Esse jogo foi criado somente para fins educacionais e não tem intenção de uso comercial.
 
-## Licence
+## Licença
 
-[MIT](https://choosealicense.com/licenses/mit/) License.
-All rights reserved &copy; 2023 JV Vogler.
+Licença [MIT](https://choosealicense.com/licenses/mit/).
+Todos os direitos reservados &copy; 2023 JV Vogler.
