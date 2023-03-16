@@ -35,7 +35,7 @@ export default class VoltorbFlip {
 
     if (cellValue === 'V') {
       if (this._board.flippedCells < this._currentLevel) {
-        this._currentLevel = this._board.flippedCells - 1
+        this._currentLevel = this._board.flippedCells
       }
       this._gameStatus = 'lose'
       return
