@@ -5,3 +5,7 @@ export const indexToCoordinate = (index: number, gridSize = 5) => {
 
   return coordinate
 }
+
+export const coordinateToIndex = (x: number, y: number, gridSize = 5) => {
+  return x * gridSize + y
+}
