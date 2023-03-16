@@ -23,7 +23,7 @@ const Gameboard = ({ game, updateGame }: Props) => {
   }, [game.cells])
 
   useEffect(() => {
-    if (game.gameStatus === 'lose') {
+    if (game.gameStatus === 'lose' || game.gameStatus === 'win') {
       const columns = [
         [0, 5, 10, 15, 20],
         [1, 6, 11, 16, 21],

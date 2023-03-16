@@ -45,7 +45,9 @@ export default class VoltorbFlip {
       : (this._currentScore *= cellValue)
 
     if (this._currentScore === this._board.maxLevelScore) {
-      this.advanceLevel()
+      this._currentLevel = Math.min(this._currentLevel + 1, 8)
+      this._totalScore += this._currentScore
+      this._gameStatus = 'win'
     }
   }
 
@@ -54,12 +56,6 @@ export default class VoltorbFlip {
     this._currentScore = 0
     this._level = new Level(this._currentLevel)
     this._board = new Board(this._level)
-  }
-
-  private advanceLevel(): void {
-    this._currentLevel = Math.min(this._currentLevel + 1, 8)
-    this._totalScore += this._currentScore
-    this.restartGame()
   }
 
   get cells() {
