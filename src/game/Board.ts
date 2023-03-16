@@ -38,6 +38,8 @@ export default class Board {
 
   public flagCell(row: number, col: number, flag: CellValue): void {
     const cell: Cell = this._board[row][col]
+    if (cell.isFlipped) return
+
     cell.flags[flag] = !cell.flags[flag]
     cell.isFlagged = Object.values(cell.flags).some(value => value === true)
   }
@@ -45,7 +47,10 @@ export default class Board {
   public flipCell(row: number, col: number): CellValue {
     const cell: Cell = this._board[row][col]
     if (cell.value !== 'V' && !cell.isFlipped) this._flippedCells += 1
-    if (!cell.isFlipped) cell.isFlipped = true
+    if (!cell.isFlipped) {
+      cell.isFlipped = true
+      cell.flags = { 1: false, 2: false, 3: false, V: false }
+    }
 
     return cell.value
   }
