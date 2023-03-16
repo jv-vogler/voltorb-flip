@@ -4,7 +4,9 @@
 
 Voltorb Flip é um minigame dos Game Corners de Goldenrod e Celadon nas versões Coreanas e Ocidentais dos jogos Pokémon HeartGold e SoulSilver.
 
-### [**Jogue no navegador**](https://voltorbflip.vercel.app/)
+<img style="display:block; margin-left: auto; margin-right: auto" width="300px" src="/home/jv/Projects/voltorb-flip/public/images/voltorb-flip.png" />
+
+### <div style="text-align: center">[**Jogue no navegador**](https://voltorbflip.vercel.app/)</div>
 
 ## Como jogar
 
@@ -27,7 +29,9 @@ O objetivo desse projeto foi recriar o jogo semelhante a cassino integrando **Ty
 
 A UI do jogo foi recriada usando apenas **Tailwindcss** (o único gráfico que usei foi o sprite de Voltorb).
 
-### **VoltorbFlip.ts**
+<img src="/home/jv/Projects/voltorb-flip/public/images/comparison.png" />
+
+## Métodos e Propriedades
 
 <table>
 <tr>
@@ -84,20 +88,6 @@ totalScore
 </td>
 </tr>
 
-</table>
-
-### **Board.ts**
-
-<table>
-<tr>
-<td>
-flippedCells
-</td>
-<td>
- células viradas nesse nível
-</td>
-</tr>
-
 <tr>
 <td>
 rowValues
@@ -122,15 +112,6 @@ cells
 </td>
 <td>
  retorna uma array 2D de Cells
-</td>
-</tr>
-
-<tr>
-<td>
-maxLevelScore
-</td>
-<td>
- placar máximo possível nesse nível
 </td>
 </tr>
 
