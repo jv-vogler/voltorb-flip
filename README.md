@@ -4,7 +4,7 @@
 
 Voltorb Flip is a minigame of the Goldenrod and Celadon Game Corners in the Korean and Western releases of Pokémon HeartGold and SoulSilver.
 
-<img style="display:block; margin-left: auto; margin-right: auto" width="300px" src="/home/jv/Projects/voltorb-flip/public/images/voltorb-flip.png" />
+<img style="display:block; margin-left: auto; margin-right: auto" width="300px" src="https://github.com/jv-vogler/voltorb-flip/blob/main/public/images/voltorb-flip.png?raw=true" />
 
 ### <div style="text-align: center">[**Play in the browser**](https://voltorbflip.vercel.app/)</div>
 
@@ -31,7 +31,7 @@ The goal of this project was to recreate a 'casino-like' game integrating **Type
 
 The game's UI was recreated using only **Tailwindcss** (the only graphic asset I used is the Voltorb sprite).
 
-<img src="/home/jv/Projects/voltorb-flip/public/images/comparison.png" />
+<img src="https://github.com/jv-vogler/voltorb-flip/blob/main/public/images/comparison.png?raw=true" />
 
 ## Methods and Properties
 
