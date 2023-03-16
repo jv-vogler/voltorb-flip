@@ -62,8 +62,16 @@ export default class VoltorbFlip {
     this.restartGame()
   }
 
-  get board() {
-    return this._board
+  get cells() {
+    return this._board.cells
+  }
+
+  get rowValues() {
+    return this._board.rowValues
+  }
+
+  get colValues() {
+    return this._board.colValues
   }
 
   get gameStatus() {

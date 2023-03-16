@@ -13,14 +13,14 @@ type Props = {
 
 const Gameboard = ({ game, updateGame }: Props) => {
   const [cardsFlipped, setCardsFlipped] = useState<{ isFlipped: boolean }[]>(
-    game.board.cells.flat().map(cell => ({ isFlipped: cell.isFlipped }))
+    game.cells.flat().map(cell => ({ isFlipped: cell.isFlipped }))
   )
 
   useEffect(() => {
     setCardsFlipped(() =>
-      game.board.cells.flat().map(cell => ({ isFlipped: cell.isFlipped }))
+      game.cells.flat().map(cell => ({ isFlipped: cell.isFlipped }))
     )
-  }, [game.board.cells])
+  }, [game.cells])
 
   useEffect(() => {
     if (game.gameStatus === 'lose') {
@@ -69,7 +69,7 @@ const Gameboard = ({ game, updateGame }: Props) => {
         <div className="flex flex-col gap-4">
           <div className="flex gap-4">
             <div className="grid grid-cols-5 gap-4">
-              {game.board.cells.flat().map((cell, i) => {
+              {game.cells.flat().map((cell, i) => {
                 const coordinate = indexToCoordinate(i)
                 return (
                   <Card
@@ -90,7 +90,7 @@ const Gameboard = ({ game, updateGame }: Props) => {
                 )
               })}
 
-              {game.board.colValues.map((col, index) => (
+              {game.colValues.map((col, index) => (
                 <RowColCard
                   coins={col.coins}
                   voltorbs={col.voltorbs}
@@ -100,7 +100,7 @@ const Gameboard = ({ game, updateGame }: Props) => {
               ))}
             </div>
             <div className="flex flex-col gap-[17.5px]">
-              {game.board.rowValues.map((row, index) => (
+              {game.rowValues.map((row, index) => (
                 <RowColCard
                   coins={row.coins}
                   voltorbs={row.voltorbs}
