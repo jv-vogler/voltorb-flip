@@ -62,7 +62,7 @@ const Gameboard = ({ game, updateGame }: Props) => {
 
   return (
     <div className="relative h-96 w-full border-4 border-white bg-[#448563] p-1.5 outline outline-2 outline-gray-600">
-      {game.gameStatus === 'lose' && (
+      {(game.gameStatus === 'lose' || game.gameStatus === 'win') && (
         <div className="absolute inset-0 z-50 h-full w-full bg-blue-500 opacity-0"></div>
       )}
       <div className="flex h-full w-full rounded-xl bg-[#58a66c] p-2">
