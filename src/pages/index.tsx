@@ -4,6 +4,7 @@ import GameInfo from '@/components/GameInfo'
 import Scoreboard from '@/components/Scoreboard'
 import Gameboard from '@/components/Gameboard'
 import useGame from '@/hooks/useGame'
+import InstructionsBtns from '@/components/InstructionsBtns'
 
 const pokemonFont = localFont({ src: '../../public/fonts/pokemon-ds-font.ttf' })
 
@@ -22,9 +23,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main
-        className={`flex h-screen flex-col items-center bg-[#58a66c] text-white ${pokemonFont.className}`}
+        className={`flex h-screen flex-col items-center text-white ${pokemonFont.className}`}
       >
         <div className="flex flex-col items-center gap-2 p-2">
+          <InstructionsBtns />
           {game && (
             <>
               <GameInfo currentLevel={game.currentLevel} />

@@ -23,6 +23,10 @@
   text-rendering: geometricPrecision;
 }
 
+body {
+  background-color: #58a66c;
+}
+
 .voltorb {
   height: 28px;
   width: 28px;
