@@ -45,6 +45,15 @@ export default class Board {
   }
 
   public flipCell(row: number, col: number): CellValue {
+    if (
+      row < 0 ||
+      row >= this._board.length ||
+      col < 0 ||
+      col >= this._board[0].length
+    ) {
+      throw new Error(`Invalid row or column: (${row}, ${col})`)
+    }
+
     const cell: Cell = this._board[row][col]
     if (cell.isFlipped) {
       return 1
