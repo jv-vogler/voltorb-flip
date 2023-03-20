@@ -5,6 +5,7 @@ import Scoreboard from '@/components/Scoreboard'
 import Gameboard from '@/components/Gameboard'
 import useGame from '@/hooks/useGame'
 import InstructionsBtns from '@/components/InstructionsBtns'
+import Footer from '@/components/Footer'
 
 const pokemonFont = localFont({ src: '../../public/fonts/pokemon-ds-font.ttf' })
 
@@ -35,6 +36,7 @@ export default function Home() {
                 totalScore={game.totalScore}
               />
               <Gameboard game={game} updateGame={updateGame} />
+              <Footer />
             </>
           )}
         </div>
