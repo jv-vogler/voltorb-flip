@@ -26,11 +26,13 @@ const Card = ({ children, fake, isFlipped, flipCard }: Props) => {
         style={{ transform: `${isFlipped ? 'rotateY(180deg)' : 'none'}` }}
       >
         <div
-          className={`${numberFont.className} text-shadow-white flex h-full w-full place-content-center place-items-center rounded-sm border-2 border-[#a55a52] bg-[#bd8c84] text-3xl font-bold text-black outline outline-4 outline-gray-200 [backface-visibility:hidden] [transform:rotateY(180deg)]`}
+          className={`${numberFont.className} text-shadow-white flex h-full w-full place-content-center place-items-center rounded-sm border-2 border-gray-800 bg-[#bd8c84] text-3xl font-bold text-black outline outline-4 outline-gray-200 [backface-visibility:hidden] [transform:rotateY(180deg)]`}
         >
-          {children}
+          <div className="flex h-full w-full items-center justify-center border-2 border-[#a55a52]">
+            {children}
+          </div>
         </div>
-        <div className="absolute inset-0 grid h-full w-full grid-cols-3 bg-white [backface-visibility:hidden]">
+        <div className="absolute inset-0 grid h-full w-full grid-cols-3 bg-white">
           <div className="h-full w-full bg-[#448563]"></div>
           <div className="h-full w-full bg-[#58a66c]"></div>
           <div className="h-full w-full bg-[#448563]"></div>
