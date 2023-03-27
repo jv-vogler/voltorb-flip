@@ -9,12 +9,70 @@ import { indexToCoordinate } from '@/utils/helpers'
 type Props = {
   game: VoltorbFlip
   updateGame: (callback: (game: VoltorbFlip) => void) => void
+  waitForClick: boolean
 }
 
-const Gameboard = ({ game, updateGame }: Props) => {
+const Gameboard = ({ game, updateGame, waitForClick }: Props) => {
   const [cardsFlipped, setCardsFlipped] = useState<{ isFlipped: boolean }[]>(
     game.cells.flat().map(cell => ({ isFlipped: cell.isFlipped }))
   )
+
+  async function waitForUserInteraction() {
+    return new Promise<void>(resolve => {
+      const handleClick = () => {
+        resolve()
+        document.removeEventListener('click', handleClick)
+      }
+      const handleKeyPress = () => {
+        resolve()
+        document.removeEventListener('keypress', handleKeyPress)
+      }
+      document.addEventListener('click', handleClick)
+      document.addEventListener('keypress', handleKeyPress)
+    })
+  }
+
+  function handleFlip(row: number, col: number) {
+    updateGame(g => {
+      g.flipCell(row, col)
+    })
+  }
+
+  function flipCardsUp() {
+    return new Promise<void>(resolve => {
+      setTimeout(() => {
+        setCardsFlipped(() => cardsFlipped.map(() => ({ isFlipped: true })))
+        resolve()
+      }, 1000)
+    })
+  }
+
+  function flipCardsDown(delay = 1500) {
+    const columns = [
+      [0, 5, 10, 15, 20],
+      [1, 6, 11, 16, 21],
+      [2, 7, 12, 17, 22],
+      [3, 8, 13, 18, 23],
+      [4, 9, 14, 19, 24],
+    ]
+
+    setTimeout(() => {
+      let stagger = 0
+      for (let col = 0; col < 5; col++) {
+        setTimeout(() => {
+          setCardsFlipped(prev =>
+            prev.map((card, index) =>
+              columns[col].includes(index) ? { isFlipped: false } : card
+            )
+          )
+        }, stagger)
+        stagger += 200
+      }
+      setTimeout(() => {
+        updateGame(g => g.restartGame())
+      }, stagger + 200)
+    }, delay)
+  }
 
   useEffect(() => {
     setCardsFlipped(() =>
@@ -24,41 +82,15 @@ const Gameboard = ({ game, updateGame }: Props) => {
 
   useEffect(() => {
     if (game.gameStatus === 'lose' || game.gameStatus === 'win') {
-      const columns = [
-        [0, 5, 10, 15, 20],
-        [1, 6, 11, 16, 21],
-        [2, 7, 12, 17, 22],
-        [3, 8, 13, 18, 23],
-        [4, 9, 14, 19, 24],
-      ]
-      setTimeout(() => {
-        setCardsFlipped(() => cardsFlipped.map(() => ({ isFlipped: true })))
-      }, 1000)
-
-      setTimeout(() => {
-        let delay = 0
-        for (let col = 0; col < 5; col++) {
-          setTimeout(() => {
-            setCardsFlipped(prev =>
-              prev.map((card, index) =>
-                columns[col].includes(index) ? { isFlipped: false } : card
-              )
-            )
-          }, delay)
-          delay += 200
-        }
-        setTimeout(() => {
-          updateGame(g => g.restartGame())
-        }, delay + 200)
-      }, 2500)
+      if (waitForClick) {
+        flipCardsUp().then(() => {
+          waitForUserInteraction().then(() => flipCardsDown(100))
+        })
+      } else {
+        flipCardsUp().then(() => flipCardsDown())
+      }
     }
   }, [game.gameStatus])
-
-  function handleFlip(row: number, col: number) {
-    updateGame(g => {
-      g.flipCell(row, col)
-    })
-  }
 
   return (
     <div className="relative h-96 w-full border-4 border-white bg-[#448563] p-1.5 outline outline-2 outline-gray-600">
