@@ -6,11 +6,14 @@ import Gameboard from '@/components/Gameboard'
 import useGame from '@/hooks/useGame'
 import InstructionsBtns from '@/components/InstructionsBtns'
 import Footer from '@/components/Footer'
+import { useState } from 'react'
+import Settings from '@/components/Settings'
 
 const pokemonFont = localFont({ src: '../../public/fonts/pokemon-ds-font.ttf' })
 
 export default function Home() {
   const { game, updateGame } = useGame()
+  const [waitForClick, setWaitForClick] = useState(false)
 
   return (
     <>
@@ -35,7 +38,15 @@ export default function Home() {
                 currentScore={game.currentScore}
                 totalScore={game.totalScore}
               />
-              <Gameboard game={game} updateGame={updateGame} />
+              <Gameboard
+                game={game}
+                updateGame={updateGame}
+                waitForClick={waitForClick}
+              />
+              <Settings
+                waitForClick={waitForClick}
+                setWaitForClick={setWaitForClick}
+              />
               <Footer />
             </>
           )}
